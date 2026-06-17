@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cyber Security Projects | Deekshaa</title>
+
+<!-- Bootstrap & Fonts -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- FontAwesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* MATCHA & LAVENDER THEME */
+:root {
+  --bg-top: #e8f3e8; 
+  --bg-bottom: #f3e8ff; 
+  --text: #2f3e46; 
+  --heading: #52796f; 
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  color: var(--text);
+  padding-top: 100px; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR STYLES */
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 15px 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.custom-navbar .navbar-brand {
+  color: var(--heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.custom-navbar .nav-link {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0 5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover, 
+.custom-navbar .nav-link.active {
+  color: var(--heading);
+}
+
+.custom-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 2px;
+  left: 50%;
+  background-color: var(--heading);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
+  width: 70%;
+}
+
+/* FLOWERS */
+.flower {
+  position: fixed;
+  width: 120px;
+  opacity: .15;
+  z-index: -1;
+}
+.f1 { top: 10px; left: 10px; }
+.f2 { top: 10px; right: 10px; }
+.f3 { bottom: 10px; left: 20px; }
+.f4 { bottom: 10px; right: 20px; }
+
+/* PAGE HEADER */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+/* PROJECT CARDS (Glassmorphism) */
+.project-card {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(82, 121, 111, 0.15);
+}
+
+.project-card h5 {
+  color: var(--heading);
+  font-weight: 700;
+  margin-bottom: 15px;
+  border-bottom: 2px dashed rgba(82, 121, 111, 0.3);
+  padding-bottom: 10px;
+  line-height: 1.4;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Custom Button */
+.btn-project {
+  color: var(--heading);
+  border: 2px solid var(--heading);
+  background: transparent;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.btn-project:hover {
+  background: var(--heading);
+  color: white;
+}
+
+/* Back Button */
+.btn-back {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.btn-back:hover {
+  color: var(--heading);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin-top: auto; 
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../../index.html">Deekshaa</a>
+    
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav gap-2">
+        <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/skills/skills_home.html">Skills</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/projects/projects_home.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Experience/experience.html">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="/certificates/certificates_home.html">Certificates</a></li>
+        <li class="nav-item"><a class="nav-link" href="/hobbies/hobbies_home.html">Hobbies</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- FLOWERS BACKGROUND -->
+<img src="/images/flower.jpg" alt="" class="flower f1">
+<img src="/images/flower.jpg" alt="" class="flower f2">
+<img src="/images/flower.jpg" alt="" class="flower f3">
+<img src="/images/flower.jpg" alt="" class="flower f4">
+
+<div class="container pb-5">
+  
+  <a href="/projects/projects_home.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Back to Categories</a>
+
+  <div class="section-header mt-3">
+    <p class="mb-1" style="color: var(--heading); font-weight: 600; letter-spacing: 1px;">PROJECT DOMAIN</p>
+    <h1>Amazon Web Services</h1>
+    <div class="mx-auto mt-4 p-4" style="background: rgba(255, 255, 255, 0.5); border-radius: 15px; border: 1px solid rgba(255,255,255,0.8); max-width: 900px;">
+      <p class="mb-0 text-muted" style="font-size: 0.95rem; line-height: 1.7; text-align: justify;">
+        Built a strong foundation in AWS cloud computing by designing and implementing multiple real-world projects across core services including IAM, EC2, S3, VPC, Elastic Beanstalk, and serverless architectures. Gained hands-on experience in secure identity and access management, high availability systems with load balancing and auto scaling, event-driven serverless pipelines using Lambda, SNS, and SQS, and advanced S3 data management with versioning, replication, and static web hosting.
+        Developed and deployed scalable cloud solutions such as conversational AI chatbots using Amazon Lex and custom VPC networks with isolated subnets, route tables, and security groups, along with secure EC2 provisioning and SSH-based remote access. Strengthened practical understanding of cloud security, automation, fault tolerance, networking, and infrastructure-as-code principles, focusing on building resilient, production-ready AWS architectures.
+      </p>
+    </div>
+  </div>
+
+  <div class="row g-4">
+
+    <!-- Card 1 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>IAM</h5>
+        <p>Designed and implemented a secure AWS IAM architecture by creating a restricted IAM user with Amazon S3-only access, demonstrating the Principle of Least Privilege.
+        Validated IAM policy enforcement across both the AWS Management Console and AWS CLI, successfully allowing S3 operations while blocking unauthorized EC2 access.
+      </p>
+        <a href="https://drive.google.com/drive/folders/10YPRULbhDGEh07a79fMT79yLIYwAI0xu?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>IAM Roles</h5>
+        <p>Designed and implemented secure AWS IAM Role-based access for an EC2 instance, enabling keyless interaction with Amazon S3 using temporary credentials instead of static access keys.
+        Validated the Principle of Least Privilege by successfully allowing S3 operations while restricting unauthorized EC2 actions through role-based permissions.
+        </p>
+        <a href="https://drive.google.com/drive/folders/1HCm7QWN5kc8Vi6voG_NPgvkGcfzeRu2_?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>LEX Chat Bot</h5>
+        <p>Designed and deployed an intelligent hotel booking chatbot using Amazon Lex, leveraging NLP, custom slot types, and conditional logic to automate reservation workflows.
+        Implemented structured data collection, age-based validation, response cards, and dynamic confirmations to deliver an interactive and seamless user booking experience.
+      </p>
+        <a href="https://drive.google.com/drive/folders/1mqggrophvrWnJmk2eg3rMhmrzcRdKmzR?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Load Balancer & Auto Scaling Group</h5>
+        <p>Designed and deployed a highly available AWS infrastructure using an Application Load Balancer (ALB) and Auto Scaling Group (ASG) to distribute web traffic and ensure fault tolerance.
+        Implemented self-healing capabilities with custom AMIs and auto-scaling policies, enabling automatic instance replacement and continuous service availability during server failures.
+        </p>
+        <a href="https://drive.google.com/drive/folders/1seBrMPe8aRW1qzmP5MrjZ_1puL0ZgyOW?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>SNS & SQS & Lambda Function</h5>
+        <p>Designed and implemented a serverless event-driven architecture on AWS using Amazon S3, SNS, SQS, and Lambda to automate file-processing workflows.
+        Built a scalable and decoupled data pipeline where S3 upload events triggered notifications, queued messages, and automated processing through AWS Lambda.
+        </p>
+        <a href="https://drive.google.com/drive/folders/1_JQk4RXPpY60QoYbtS5ilsNObIwtUCRO?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Versioning & Cross Region Replication & Static Web Hosting</h5>
+        <p>Designed and implemented an advanced Amazon S3 architecture featuring Versioning, Cross-Region Replication (CRR), and Static Website Hosting to enhance data protection, disaster recovery, and web delivery.
+       Demonstrated secure and resilient cloud storage by enabling file version recovery, hosting a serverless static website with custom error handling, and replicating data across AWS regions for high availability.
+        </p>
+        <a href="https://drive.google.com/drive/folders/1J5H6qt_Cbsx3jeu51MMXjf5cWz8gdX-u?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>VPC creation and accessing through EC2 instance</h5>
+        <p>Designed and deployed a custom AWS Virtual Private Cloud (VPC) architecture with isolated public and private subnets, custom route tables, and an Internet Gateway to ensure secure network segmentation and connectivity.
+         Implemented security groups and controlled traffic routing to create a scalable, enterprise-grade cloud network that securely hosts public-facing and backend resources.
+         </p>
+        <a href="https://drive.google.com/drive/folders/1xJeyG1JWEAFmQJ9ebGumxMx7n9awzgls?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Beanstalk</h5>
+        <p>Designed and deployed a web application using AWS Elastic Beanstalk, automating application provisioning, deployment, load balancing, and scaling without managing the underlying infrastructure.
+        Leveraged Elastic Beanstalk to simplify application lifecycle management while ensuring high availability, monitoring, and seamless deployment of cloud-based applications.
+        </p>
+        <a href="https://drive.google.com/drive/folders/1AqdrAQsaRooRkYwZYi0TyQFyqobZAWbJ?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>EC2 Instance with SSH & Putty</h5>
+        <p>Created and launched an Amazon EC2 instance on AWS with proper security group configuration to allow SSH access for secure remote connectivity.
+        Successfully connected to the instance using both SSH (terminal) and PuTTY, demonstrating secure key-based authentication and remote server management.
+        </p>
+        <a href="https://drive.google.com/drive/folders/1LqDvgeufOB6g6VMBCHAu6YDzS2bUQZVG?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer style="text-align: center; padding: 40px 20px; opacity: 0.9; margin-top: auto; border-top: 1px dashed rgba(82, 121, 111, 0.3);">
+  
+  <div class="mb-4 d-flex justify-content-center flex-wrap gap-3">
+    
+    <!-- 1. Email (Now copies to clipboard automatically!) -->
+    <a href="mailto:deekshaa1103@gmail.com" 
+       onclick="navigator.clipboard.writeText('deekshaa1103@gmail.com'); alert('Email address copied to clipboard: deekshaa1103@gmail.com');"
+       class="text-decoration-none" 
+       style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s; cursor: pointer;" 
+       onmouseover="this.style.transform='scale(1.2)'" 
+       onmouseout="this.style.transform='scale(1)'" 
+       title="Email Me (Copies to Clipboard)">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+    
+    <!-- 2. LinkedIn -->
+    <a href="https://www.linkedin.com/in/deekshaa-thati-14a9172a0/" target="_blank" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="LinkedIn">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    
+    <!-- 3. GitHub -->
+    <a href="https://github.com/Deekshaa1103" target="_blank" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+
+    <!-- 4. Phone Number -->
+    <a href="tel:+919791331976" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="Call Me">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+
+    <!-- 5. Instagram -->
+    <a href="https://www.instagram.com/deekshaa_16?igsh=MW9ncDBjeTdiczBmZA==" target="_blank" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+  </div>
+
+  <div style="font-size: 0.9rem; color: var(--text);">
+    A small scrapbook built of curiosity, creativity, a bit of overthinking and loads learning 🌸 
+  — Deekshaa 💜
+  </div>
+  
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

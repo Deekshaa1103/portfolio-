@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deekshaa | Portfolio</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* MATCHA & LAVENDER THEME */
+:root {
+  --bg-top: #e8f3e8; /* Soft Matcha Green */
+  --bg-bottom: #f3e8ff; /* Pale Lavender */
+  --text: #2f3e46; /* Deep Mossy Charcoal */
+  --heading: #52796f; /* Earthy Sage */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  color: var(--text);
+  padding-top: 70px; /* Prevents content from hiding behind fixed navbar */
+}
+
+/* NAVBAR STYLES */
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 15px 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.custom-navbar .navbar-brand {
+  color: var(--heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.custom-navbar .nav-link {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0 5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover, 
+.custom-navbar .nav-link.active {
+  color: var(--heading);
+}
+
+/* Cute animated underline for links */
+.custom-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 2px;
+  left: 50%;
+  background-color: var(--heading);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
+  width: 70%;
+}
+
+/* FLOWERS */
+.flower {
+  position: fixed;
+  width: 120px;
+  opacity: .15;
+  z-index: -1;
+}
+.f1 { top: 10px; left: 10px; }
+.f2 { top: 10px; right: 10px; }
+.f3 { bottom: 10px; left: 20px; }
+.f4 { bottom: 10px; right: 20px; }
+
+/* HERO */
+.hero {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+
+.hero-img img {
+  width: 280px;
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--heading);
+}
+
+.badges span {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* PHOTO WALL */
+.photo-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.photo-section h2 {
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.photo-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.polaroid {
+  background: white;
+  padding: 12px 12px 45px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transform: rotate(var(--r));
+  transition: transform 0.3s ease;
+}
+
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg);
+  z-index: 10;
+}
+
+.polaroid img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* SECTION CARDS */
+.section {
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 35px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  scroll-margin-top: 100px; /* Ensures navbar doesn't cover heading when scrolling */
+}
+
+.section h3 {
+  margin-bottom: 15px;
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.section ul {
+  line-height: 1.8;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Deekshaa</a>
+    
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav gap-2">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/skills/skills_home.html">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="/projects/projects_home.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Experience/experience.html">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="/certificates/certificates_home.html">Certificates</a></li>
+        <li class="nav-item"><a class="nav-link" href="/hobbies/hobbies_home.html">Hobbies</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<img src="/images/flower.jpg" alt="" class="flower f1">
+<img src="/images/flower.jpg" alt="" class="flower f2">
+<img src="/images/flower.jpg" alt="" class="flower f3">
+<img src="/images/flower.jpg" alt="" class="flower f4">
+
+<section class="hero" id="home">
+  <div class="hero-img">
+    <img src="/images/download.png" alt="Deekshaa Avatar">
+  </div>
+
+  <div class="hero-text">
+    <p class="mb-1" style="color: var(--heading); font-weight: 600; letter-spacing: 1px;">🐣 ABOUT ME</p>
+    <h1>Hi, I'm Deekshaa.</h1>
+
+    <p class="lead">
+      I’m a Computer Science student specializing in Data Science, currently exploring the intersection of cybersecurity, cloud systems, and data analytics.
+    </p>
+
+    <p>
+      But honestly, I didn’t start with a fixed career plan—I started with curiosity. I’ve always been the kind of person who needs to understand how things work, not just use them.
+    </p>
+
+    <div class="badges mt-4">
+      <span>🔐 Cybersecurity</span>
+      <span>☁️ AWS Cloud</span>
+      <span>📊 Data Analytics</span>
+      <span>🐍 Python</span>
+      <span>💡 Problem Solver</span>
+    </div>
+  </div>
+</section>
+
+<section class="photo-section">
+  <h2>📸 A Few Snapshots</h2>
+  <div class="photo-grid mt-4">
+    <div class="polaroid" style="--r:-5deg">
+      <img src="/images/1.jpg" alt="Memory 1">
+    </div>
+    <div class="polaroid" style="--r:3deg">
+      <img src="/images/2.jpg" alt="Memory 2">
+    </div>
+    <div class="polaroid" style="--r:-2deg">
+      <img src="/images/3.jpeg" alt="Memory 3">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h3>🌷 The Catalyst</h3>
+  <p>
+    My interest in cybersecurity started when my father’s bank account was hacked and he lost money. I was 19. That was the first time I saw technology stop being “just systems” and become something that can directly affect real people.
+  </p>
+  <p>
+    It wasn’t just curiosity—it was frustration, awareness, and responsibility all at once. That moment changed how I look at technology. Since then, I’ve been drawn toward understanding how systems fail, how they are attacked, and how they can be protected.
+  </p>
+</section>
+
+<section class="section" id="skills">
+  <h3>🎀 Where My Interests Lie</h3>
+  <div class="row mt-4">
+    <div class="col-md-4 mb-3">
+      <h5 style="color: var(--heading);">🔐 Cybersecurity</h5>
+      <p class="small">I like working with logs, investigating incidents, and figuring out what happened behind the scenes. Connecting small digital clues into a full story is incredibly satisfying.</p>
+    </div>
+    <div class="col-md-4 mb-3">
+      <h5 style="color: var(--heading);">☁️ Cloud (AWS)</h5>
+      <p class="small">What started as a college requirement became fascinating. I love how IAM roles, automation, and architecture come together seamlessly. It feels structured and quietly powerful.</p>
+    </div>
+    <div class="col-md-4 mb-3">
+      <h5 style="color: var(--heading);">📊 Data Analytics</h5>
+      <p class="small">I enjoy finding patterns and building dashboards. I'm comfortable with Python and SQL (though SQL is due for a revision 😄) and am currently learning Power BI.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h3>🧠 The Curiosity Loop</h3>
+  <p>If something interests me, I don’t just skim it—I go deep into it. My usual process:</p>
+  <ul>
+    <li>Google it first</li>
+    <li>Read articles & Watch videos</li>
+    <li>Take notes (sometimes neat, sometimes chaotic)</li>
+  </ul>
+  <p>
+    And then I fall into a “curiosity loop” where one question leads to ten more. I’ve spent way too much time researching random topics—like fictional characters and lesser-known marine animals—for no practical reason!
+  </p>
+</section>
+
+<section class="section" id="projects">
+  <h3>💻 Projects & Technical Approach</h3>
+  <p>
+    Driven mostly by curiosity rather than obligation, I have worked on <strong>14 Cyber Security projects</strong> , <strong>12 Software Engineering projects</strong> , <strong>9 AWS projects</strong> and <strong>a lot more other projects</strong>. 
+  </p>
+  <p>
+    During my Machine Learning and Deep Learning labs, I often preferred coding everything myself in Python instead of relying only on tools—just so I could understand exactly what was happening under the hood.
+  </p>
+</section>
+
+
+
+<section class="section">
+  <h3>🤝 How I Work</h3>
+  <p>
+    I enjoy working with people and learn a lot from collaboration. I naturally take a leadership approach in group work because I like structure and clarity. At the same time, I deeply value fairness and equal effort. I’m the kind of person who prefers understanding the full picture before jumping into action.
+  </p>
+</section>
+
+
+<section class="section" id="hobbies">
+  <h3>🌊 Beyond the Screen</h3>
+  <p>
+    Outside academics, I’m fairly expressive and emotionally intuitive. I get attached to stories easily and can cry at scenes just because I connect with them deeply.
+  </p>
+  <p><strong>Things I enjoy:</strong></p>
+  <ul>
+    <li>Listening to energetic background music while doing absolutely anything and a wide range of songs (Hindi, Telugu, Tamil, Korean, Chinese).</li>
+    <li>Losing track of time reading novels or watching dramas.</li>
+    <li>Drawing, painting, and paper crafts.</li>
+    <li>Cooking (sometimes).</li>
+    <li>Scrolling Instagram and doing Duolingo (more than I’d like to admit).</li>
+    <li>Exploring side interests like acting, dancing, pottery, photography, and maybe even botany someday.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <h3>🦢 My Vibe</h3>
+  <div class="d-flex flex-wrap gap-2 mt-3 mb-3">
+    <span class="badge bg-light text-dark border">Morning person</span>
+    <span class="badge bg-light text-dark border">Planner by nature</span>
+    <span class="badge bg-dark text-light">Dark mode loyalist</span>
+    <span class="badge bg-light text-dark border">Cautious & intuitive</span>
+    <span class="badge bg-light text-dark border">Emotionally expressive</span>
+  </div>
+  <p>
+    I have a habit of trusting my intuition—and surprisingly often, it turns out right. My friends usually see me as emotionally supportive, the designated planner, and a mix of calm and chaos depending on the situation.
+  </p>
+</section>
+
+<section class="section">
+  <h3>🍁 What I'm Looking For</h3>
+  <p>
+    I’m currently exploring opportunities in <strong>Cybersecurity (SOC / Digital Forensics / Cloud Security)</strong> and <strong>Data Analytics</strong>. 
+  </p>
+  <p>
+    I’m highly practical about my decisions. I care about good learning opportunities, a healthy work culture, location, and compensation. I want to grow in a space where I can contribute meaningfully while continuing to explore.
+  </p>
+</section>
+
+<section class="section text-center" style="background: rgba(255, 255, 255, 0.9);">
+  <h3>✨ Final Note ✨</h3>
+  <p class="fst-italic mt-3" style="color: var(--heading);">
+    "I don’t see myself as someone who had everything figured out early. I may not follow one fixed path, but I always follow what I genuinely want to understand. And that has led me here—with a mind that’s always still exploring."
+  </p>
+</section>
+
+<footer style="text-align: center; padding: 40px 20px; opacity: 0.9; margin-top: auto; border-top: 1px dashed rgba(82, 121, 111, 0.3);">
+  
+  <div class="mb-4 d-flex justify-content-center flex-wrap gap-3">
+    
+    <!-- 1. Email (Now copies to clipboard automatically!) -->
+    <a href="mailto:deekshaa1103@gmail.com" 
+       onclick="navigator.clipboard.writeText('deekshaa1103@gmail.com'); alert('Email address copied to clipboard: deekshaa1103@gmail.com');"
+       class="text-decoration-none" 
+       style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s; cursor: pointer;" 
+       onmouseover="this.style.transform='scale(1.2)'" 
+       onmouseout="this.style.transform='scale(1)'" 
+       title="Email Me (Copies to Clipboard)">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+    
+    <!-- 2. LinkedIn -->
+    <a href="https://www.linkedin.com/in/deekshaa-thati-14a9172a0/" target="_blank" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="LinkedIn">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    
+    <!-- 3. GitHub -->
+    <a href="https://github.com/Deekshaa1103" target="_blank" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+
+    <!-- 4. Phone Number -->
+    <a href="tel:+919791331976" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="Call Me">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+
+    <!-- 5. Instagram -->
+    <a href="https://www.instagram.com/deekshaa_16?igsh=MW9ncDBjeTdiczBmZA==" target="_blank" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+  </div>
+
+  <div style="font-size: 0.9rem; color: var(--text);">
+    A small scrapbook built of curiosity, creativity, a bit of overthinking and loads learning 🌸 
+  — Deekshaa 💜
+  </div>
+  
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

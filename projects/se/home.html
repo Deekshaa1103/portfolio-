@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Software Engineering Projects | Deekshaa</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+/* MATCHA & LAVENDER THEME */
+:root {
+  --bg-top: #e8f3e8; 
+  --bg-bottom: #f3e8ff; 
+  --text: #2f3e46; 
+  --heading: #52796f; 
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  color: var(--text);
+  padding-top: 100px; 
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* NAVBAR STYLES */
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 15px 0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.custom-navbar .navbar-brand {
+  color: var(--heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+}
+
+.custom-navbar .nav-link {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0 5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover, 
+.custom-navbar .nav-link.active {
+  color: var(--heading);
+}
+
+.custom-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 2px;
+  left: 50%;
+  background-color: var(--heading);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
+  width: 70%;
+}
+
+/* FLOWERS */
+.flower {
+  position: fixed;
+  width: 120px;
+  opacity: .15;
+  z-index: -1;
+}
+.f1 { top: 10px; left: 10px; }
+.f2 { top: 10px; right: 10px; }
+.f3 { bottom: 10px; left: 20px; }
+.f4 { bottom: 10px; right: 20px; }
+
+/* PAGE HEADER */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--heading);
+}
+
+/* PROJECT CARDS (Glassmorphism) */
+.project-card {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(82, 121, 111, 0.15);
+}
+
+.project-card h5 {
+  color: var(--heading);
+  font-weight: 700;
+  margin-bottom: 15px;
+  border-bottom: 2px dashed rgba(82, 121, 111, 0.3);
+  padding-bottom: 10px;
+  line-height: 1.4;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Custom Button */
+.btn-project {
+  color: var(--heading);
+  border: 2px solid var(--heading);
+  background: transparent;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.btn-project:hover {
+  background: var(--heading);
+  color: white;
+}
+
+/* Back Button */
+.btn-back {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.btn-back:hover {
+  color: var(--heading);
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin-top: auto; 
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top custom-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="../../index.html">Deekshaa</a>
+    
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav gap-2">
+        <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/skills/skills_home.html">Skills</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/projects/projects_home.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Experience/experience.html">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="/certificates/certificates_home.html">Certificates</a></li>
+        <li class="nav-item"><a class="nav-link" href="/hobbies/hobbies_home.html">Hobbies</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<img src="/images/flower.jpg" alt="" class="flower f1">
+<img src="/images/flower.jpg" alt="" class="flower f2">
+<img src="/images/flower.jpg" alt="" class="flower f3">
+<img src="/images/flower.jpg" alt="" class="flower f4">
+
+<div class="container pb-5">
+  
+  <a href="/projects/projects_home.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Back to Categories</a>
+
+  <div class="section-header mt-3">
+    <p class="mb-1" style="color: var(--heading); font-weight: 600; letter-spacing: 1px;">PROJECT DOMAIN</p>
+    <h1>Software Engineering</h1>
+    <div class="mx-auto mt-4 p-4" style="background: rgba(255, 255, 255, 0.5); border-radius: 15px; border: 1px solid rgba(255,255,255,0.8); max-width: 900px;">
+      <p class="mb-0 text-muted" style="font-size: 0.95rem; line-height: 1.7; text-align: justify;">
+        This section of my portfolio showcases hands-on projects spanning DevOps, cloud computing, and software development workflows. It includes practical work with tools like AWS EC2, Docker, Docker Compose, Git, Jenkins, Maven, and Nagios, focusing on building, deploying, automating, and monitoring applications. Together, these projects reflect my ability to manage end-to-end application lifecycles—from development and version control to containerization, CI/CD automation, and infrastructure monitoring.
+      </p>
+    </div>
+  </div>
+
+  <div class="row g-4">
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Deployment using EC2 instance maven web deployment</h5>
+        <p>The project demonstrated deploying both a static HTML website and a dynamic Maven web application on AWS EC2 instances using Docker containers, with Nginx and Tomcat as web servers. It showcased cloud infrastructure provisioning, containerization, version control integration with GitHub, and secure network configuration to enable reliable and scalable web application deployment.</p>
+        <a href="https://drive.google.com/drive/folders/1t_JIEaV1kXFupwQfwmR1wI4Ub-x64WGX?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Docker commands</h5>
+        <p>The project focused on mastering Docker containerization by managing images and containers throughout their complete lifecycle, including creation, execution, inspection, and removal. It demonstrated building custom Docker images, publishing them to Docker Hub, and deploying reproducible containerized environments for efficient application management.</p>
+        <a href="https://drive.google.com/drive/folders/1GGV_gQjJ_kHwpYdwkpGqD_-7vA8KiLrn?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Docker nginx</h5>
+        <p>The project demonstrated the use of Docker Compose to orchestrate a multi-container application consisting of an NGINX web server, PostgreSQL database, Redis cache, and a custom Flask application using a single configuration file. It showcased service dependencies, container networking, persistent storage, and portable deployments, enabling efficient and consistent application management across different environments.</p>
+        <a href="https://drive.google.com/drive/folders/1BPCShhn01vjQAUNgBPaQj0Zrwpd84VK6?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>GIT commands</h5>
+        <p>This project focused on mastering Git version control and GitHub repository management by handling a multi-folder project, implementing branching workflows, managing remote repositories, and resolving merge conflicts. It demonstrated practical skills in tracking changes, collaborating through GitHub, troubleshooting repository issues, and applying industry-standard version control practices for efficient software development.</p>
+        <a href="https://drive.google.com/drive/folders/1VLBo2drBoO0sWRNhc4toDWic7JkIMveW?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Jenkins automation</h5>
+        <p>The project focused on implementing CI/CD pipeline automation using Jenkins and Maven to automatically build, test, archive, and deploy Java and Maven Web applications sourced from GitHub. It demonstrated end-to-end software delivery by integrating Jenkins pipelines, Maven build lifecycles, artifact management, and automated deployment to a Tomcat server.</p>
+        <a href="https://drive.google.com/drive/folders/1MNcD8rS2zcR15BNlrK1AKClJDWXdqaNk?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Jenkins ngrok web hooks</h5>
+        <p>The project focused on automating CI/CD workflows by integrating GitHub and Jenkins using webhooks, with ngrok used to expose the local Jenkins server for trigger communication, enabling automatic pipeline execution on every code push. It also implemented email notifications using Jenkins and Gmail SMTP, providing real-time build status alerts and improving workflow monitoring and automation.</p>
+        <a href="https://drive.google.com/drive/folders/1vJfMSRW2wD50QO2tlYSNgJCWzW1e-5sp?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Jenkins pipeline</h5>
+        <p>The project demonstrated the creation of a scripted Jenkins pipeline using Groovy to automate a complete Java Maven build lifecycle, including cloning the repository, building, testing, and packaging the application. It showcased transitioning from manual Jenkins jobs to fully automated, stage-based CI workflows with scheduled triggers for continuous integration.</p>
+        <a href="https://drive.google.com/drive/folders/1sSsKBkD1VmdM506uNUPJerSXwZbTUIRM?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Maven App</h5>
+        <p>The project focused on understanding and applying Maven for build automation and dependency management by creating and packaging both Java and web applications using the Maven lifecycle. It demonstrated managing external dependencies via `pom.xml`, resolving build issues, and deploying applications to a local Tomcat server while gaining experience with JAR/WAR packaging and Git integration.</p>
+        <a href="https://drive.google.com/drive/folders/15MnXD9_AlGxbBLm9C1_pTV-LZfJLYESH?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Maven JAR</h5>
+        <p>The project focused on understanding the Maven project lifecycle by building, testing, and packaging Java and web applications using standard Maven commands and configurations. It demonstrated dependency management through `pom.xml`, creation of executable JARs and deployable WARs, and deployment of web applications on a Tomcat server while reinforcing project structuring and build automation concepts.</p>
+        <a href="https://drive.google.com/drive/folders/1RV-gIz9shHmPbUS0vqxAgA40eGC4HbMO?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Maven WAR</h5>
+        <p>The project focused on understanding the Maven project lifecycle and multi-module architecture by building Java and web applications using archetypes, dependencies, and standard build goals. It demonstrated working with parent-child modules, resolving build issues, and generating executable JARs and deployable WARs while reinforcing dependency management and build automation concepts.</p>
+        <a href="https://drive.google.com/drive/folders/1Y4V1yGrKiUC4CDdPAxRp5SYVRn-YHpFX?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Nagios</h5>
+        <p>The project demonstrated the deployment of a Nagios monitoring system using Docker to continuously monitor server health, network status, and system services through a web-based dashboard. It enabled real-time tracking of critical metrics like HTTP, PING, and system load, along with alerting capabilities to ensure infrastructure reliability and quick issue detection.</p>
+        <a href="https://drive.google.com/drive/folders/1pqLI13IcwZEpP2tytPtFgOLnn5m7kFqZ?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-6">
+      <div class="project-card">
+        <h5>Working with GIT commands</h5>
+        <p>The project focused on using Git for version control and repository management by pushing a multi-folder project to a private GitHub repository while practicing essential local and remote Git operations. It demonstrated skills in staging, committing, pushing code, resolving merge conflicts, managing branches, and applying .gitignore for effective source control and collaboration.</p>
+        <a href="https://drive.google.com/drive/folders/11n_ymFT3N3EhUzqKMw7c5q_LkHzNldKx?usp=drive_link" target="_blank" class="btn-project">View Details <i class="fa-solid fa-arrow-right ms-1"></i></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer style="text-align: center; padding: 40px 20px; opacity: 0.9; margin-top: auto; border-top: 1px dashed rgba(82, 121, 111, 0.3);">
+  
+  <div class="mb-4 d-flex justify-content-center flex-wrap gap-3">
+    
+    <!-- 1. Email (Now copies to clipboard automatically!) -->
+    <a href="mailto:deekshaa1103@gmail.com" 
+       onclick="navigator.clipboard.writeText('deekshaa1103@gmail.com'); alert('Email address copied to clipboard: deekshaa1103@gmail.com');"
+       class="text-decoration-none" 
+       style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s; cursor: pointer;" 
+       onmouseover="this.style.transform='scale(1.2)'" 
+       onmouseout="this.style.transform='scale(1)'" 
+       title="Email Me (Copies to Clipboard)">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+    
+    <!-- 2. LinkedIn -->
+    <a href="https://www.linkedin.com/in/deekshaa-thati-14a9172a0/" target="_blank" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="LinkedIn">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    
+    <!-- 3. GitHub -->
+    <a href="https://github.com/Deekshaa1103" target="_blank" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
+
+    <!-- 4. Phone Number -->
+    <a href="tel:+919791331976" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="Call Me">
+      <i class="fa-solid fa-phone"></i>
+    </a>
+
+    <!-- 5. Instagram -->
+    <a href="https://www.instagram.com/deekshaa_16?igsh=MW9ncDBjeTdiczBmZA==" target="_blank" class="text-decoration-none" style="color: var(--heading); font-size: 1.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.2)'" onmouseout="this.style.transform='scale(1)'" title="Instagram">
+      <i class="fa-brands fa-instagram"></i>
+    </a>
+
+  </div>
+
+  <div style="font-size: 0.9rem; color: var(--text);">
+    A small scrapbook built of curiosity, creativity, a bit of overthinking and loads learning 🌸 
+  — Deekshaa 💜
+  </div>
+  
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
